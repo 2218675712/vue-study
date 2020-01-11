@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-3.4.1.js"></script>
+    <script src="../js/vue.js"></script>
+    <script>
+        /*
+        * 时间:       2020年1月11日12:51:13
+        *
+        * 目的:       vue学习--学习指令v-cloak
+        *
+        * 结果
+        *       -----------------------------
+        *
+        *       作用:解决闪烁问题
+        *
+        *       -----------------------------
+        * */
+    </script>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <div v-cloak>{{msg}}</div>
+</div>
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            msg: 'Hello Vue!'
+        }
+    });
+</script>
+</body>
+</html>

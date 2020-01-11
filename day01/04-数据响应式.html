@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-3.4.1.js"></script>
+    <script src="../js/vue.js"></script>
+    <script>
+        /*
+        * 时间:       2020年1月11日13:30:26
+        *
+        * 目的:       vue学习--学习数据响应式
+        *
+        * 结果
+        *       -----------------------------
+        *
+        *       v-once的应用场景：如果显示的信息后续不需要再修改，
+        *       你们可以使用v-once，这样可以提高性能。
+        *       -----------------------------
+        * */
+    </script>
+</head>
+<body>
+<div id="app">
+    <div>{{msg}}</div>
+    <div v-once>{{msg1}}</div>
+</div>
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            msg: 'Hello Vue!',
+            msg1: '一次性',
+        }
+    });
+</script>
+</body>
+</html>

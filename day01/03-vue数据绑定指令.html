@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-3.4.1.js"></script>
+    <script src="../js/vue.js"></script>
+    <script>
+        /*
+        * 时间:       2020年1月11日12:51:13
+        *
+        * 目的:       vue学习--学习数据绑定
+        *
+        * 结果
+        *       -----------------------------
+        *       v-text=""       只有文本
+        *       v-html=""       是标签
+        *       v-pre           标签有什么,就显示什么
+        *
+        *
+        *       -----------------------------
+        * */
+    </script>
+</head>
+<body>
+<div id="app">
+    <div v-text="msg"></div>
+    <div v-html="msg1"></div>
+    <div v-pre>{{msg}}</div>
+</div>
+<script>
+    var vm=new Vue({
+       el:'#app',
+       data:{
+           msg:'Hello Vue!',
+           msg1:'<h1>我是h1标签</h1>',
+       }
+    });
+</script>
+</body>
+</html>
