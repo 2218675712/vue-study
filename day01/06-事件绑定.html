@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-3.4.1.js"></script>
+    <script src="../js/vue.js"></script>
+    <script>
+        /*
+        * 时间:       2020年1月11日21:19:48
+        *
+        * 目的:       vue学习--事件绑定
+        *
+        * 结果
+        *       -----------------------------
+        *       v-on:click=''
+        *       @click=''
+        *
+        *
+        *       -----------------------------
+        * */
+    </script>
+</head>
+<body>
+<div id="app">
+    <div>{{num}}</div>
+    <div>
+        <!--        通过  v-on方式绑定-->
+        <button v-on:click='num++'>按钮1</button>
+        <!--        简便写法-->
+        <button @click='num++'>按钮2</button>
+        <!--        直接调用-->
+        <button @click='handle'>按钮3</button>
+        <button @click='handle()'>按钮4</button>
+    </div>
+</div>
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            num: 1
+        },
+        // methods  中 主要是定义一些函数
+        methods: {
+            handle: function () {
+                this.num++;
+            }
+        }
+    });
+</script>
+</body>
+</html>
