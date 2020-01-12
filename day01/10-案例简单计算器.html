@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-3.4.1.js"></script>
+    <script src="../js/vue.js"></script>
+    <script>
+        /*
+        * 时间:       2020年1月12日15:44:27
+        *
+        * 目的:       vue学习--简单计算器
+        *
+        * 结果
+        *       -----------------------------
+        *
+        *
+        *       -----------------------------
+        * */
+    </script>
+</head>
+<body>
+<div id="app">
+    <div>
+        <span>数值A:</span>
+        <input type="text" v-model='a'>
+    </div>
+    <div>
+        <span>数值B:</span>
+        <input type="text" v-model='b'>
+    </div>
+    <div>
+        <button v-on:click="handle">计算</button>
+    </div>
+    <div>
+        <span>计算结果</span>
+        <span v-text="result"></span>
+    </div>
+</div>
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            a: '',
+            b: '',
+            result: ''
+        },
+        methods: {
+            handle: function () {
+                this.result = Number(this.a) + Number(this.b);
+            }
+        }
+    });
+</script>
+</body>
+</html>
