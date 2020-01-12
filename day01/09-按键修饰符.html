@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-3.4.1.js"></script>
+    <script src="../js/vue.js"></script>
+    <script>
+        /*
+        * 时间:       2020年1月12日15:06:55
+        *
+        * 目的:       vue学习--按键修饰符
+        *
+        * 结果
+        *       -----------------------------
+        *
+        *
+        *       -----------------------------
+        * */
+    </script>
+</head>
+<body>
+<div id="app">
+    <form action="">
+        <div>
+            用户名
+            <input type="text" v-on:keyup.delete='clearContent' v-model='uname'>
+        </div>
+        <div>
+            密码
+
+            <input type="password" v-on:keyup.enter='submit' v-model='pwd'>
+            <!--            自定义按键-->
+            <!--            <input type="password" v-on:keyup.f1='handleSubmit' v-model='pwd'>-->
+        </div>
+        <div>
+            <input type="button" v-on:click='handleSubmit' value="提交">
+        </div>
+    </form>
+</div>
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            uname: '',
+            pwd: '',
+            age: 0
+        },
+        methods: {
+            //按delete键时,清空用户名
+            clearContent: function () {
+                this.uname = '';
+            },
+            handleSubmit: function () {
+                console.log(this.uname, this.pwd);
+            },
+            submit: function () {
+                alert("提交成功");
+            }
+        }
+    });
+</script>
+</body>
+</html>

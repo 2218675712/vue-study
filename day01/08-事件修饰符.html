@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-3.4.1.js"></script>
+    <script src="../js/vue.js"></script>
+    <script>
+        /*
+        * 时间:       2020年1月12日14:25:08
+        *
+        * 目的:       vue学习--事件修饰符
+        *
+        * 结果
+        *       -----------------------------
+        *
+        *
+        *       -----------------------------
+        * */
+    </script>
+</head>
+<body>
+<div id="app">
+    <div>{{num}}</div>
+    <div v-on:click="handle0">
+        <button v-on:click.stop='handle1'>点击1</button>
+    </div>
+    <div>
+        <a href="http://www.baidu.com/" v-on:click.prevent='handle3'>百度</a>
+    </div>
+</div>
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            num: 0
+        },
+        methods: {
+            handle0: function () {
+                this.name++
+            },
+            handle2: function (event) {
+                //阻止冒泡
+                // event.stopPropagation();
+            },
+            handle3: function (event) {
+                //阻止默认行为
+                //event.preventDefault();
+            }
+        }
+    });
+</script>
+</body>
+</html>
