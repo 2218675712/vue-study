@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-3.4.1.js"></script>
+    <script src="../js/vue.js"></script>
+    <script>
+        /*
+        * 时间:       2020年1月13日12:35:33
+        *
+        * 目的:       属性绑定
+        *
+        * 结果
+        *       -----------------------------
+        *
+        *
+        *       -----------------------------
+        * */
+    </script>
+</head>
+<body>
+<div id="app">
+    <div>
+        <!--        普通方式-->
+        <a v-bind:href='url'>百度1</a>
+        <!--        简写-->
+        <a :href='url'>百度2</a>
+    </div>
+    <div>
+        <!--        点击切换为谷歌-->
+        <button v-on:click='handle'>切换谷歌</button>
+    </div>
+</div>
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            url: 'http://www.baidu.com/'
+        },
+        methods: {
+            handle: function () {
+                this.url = 'http://www.google.com/';
+            }
+        }
+    });
+</script>
+</body>
+</html>
