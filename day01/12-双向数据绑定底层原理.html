@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-3.4.1.js"></script>
+    <script src="../js/vue.js"></script>
+    <script>
+        /*
+        * 时间:       2020年1月13日12:35:33
+        *
+        * 目的:       属性绑定
+        *
+        * 结果
+        *       -----------------------------
+        *
+        *
+        *       -----------------------------
+        * */
+    </script>
+</head>
+<body>
+<div id="app">
+    <div>
+        <span>{{msg}}</span>
+        <br>
+        <!--        第一种方式-->
+        <input type="text" v-bind:value='msg' v-on:input='handle'>
+        <!--        第二种方式-->
+        <input type="text" v-bind:value='msg' v-on:input='msg=$event.target.value'>
+        <!--        第三种方式-->
+        <input type="text" v-model='msg'>
+    </div>
+</div>
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            msg: 'hello'
+        },
+        methods: {
+            handle: function (event) {
+                this.msg = event.target.value;
+            }
+        }
+    })
+</script>
+</body>
+</html>
