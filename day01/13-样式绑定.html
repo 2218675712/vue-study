@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-3.4.1.js"></script>
+    <script src="../js/vue.js"></script>
+    <script>
+        /*
+        * 时间:       2020年1月13日17:23:23
+        *
+        * 目的:       样式绑定
+        *
+        * 结果
+        *       -----------------------------
+        *
+        *
+        *       -----------------------------
+        * */
+    </script>
+    <style>
+        .active {
+            width: 100px;
+            height: 100px;
+            border: 2px solid red;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <!--    对象绑定-->
+    <div>
+        <div v-bind:class="{active:isActive}">对象绑定</div>
+        <button v-on:click='handle1'>切换</button>
+    </div>
+    <!--    数组绑定-->
+    <div>
+        <div v-bind:class="[activeClass]">数组绑定</div>
+        <button v-on:click='handle2'>切换</button>
+    </div>
+</div>
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            isActive: true,
+            activeClass: 'active',
+        },
+        methods: {
+            handle1: function () {
+                this.isActive = !this.isActive;
+            },
+            handle2: function () {
+                this.activeClass = '';
+            }
+        }
+    })
+</script>
+</body>
+</html>

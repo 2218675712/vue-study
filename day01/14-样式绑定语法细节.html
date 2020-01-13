@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-3.4.1.js"></script>
+    <script src="../js/vue.js"></script>
+    <script>
+        /*
+        * 时间:      2020年1月13日17:42:39
+        *
+        * 目的:       样式绑定语法细节
+        *
+        * 结果
+        *       -----------------------------
+        *
+        *       绑定相关语法细节：
+        *        1、对象绑定和数组绑定可以结合使用
+        *        2、class绑定的值可以简化操作
+        *        3、默认的class如何处理？默认的class会保留
+        *
+        *
+        *       -----------------------------
+        * */
+    </script>
+    <style>
+        .active {
+            width: 100px;
+            height: 100px;
+            border: 2px solid red;
+        }
+
+        .test {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <div>
+        <!--        1、对象绑定和数组绑定可以结合使用-->
+        <div v-bind:class="[{active:isActive},testClass]">结合绑定</div>
+        <!--        2、class绑定的值可以简化操作-->
+        <!--        数组方式-->
+        <div v-bind:class="arrClasses">数组方式简化</div>
+        <!--        对象方式-->
+        <div v-bind:class="objClasses">对象方式简化</div>
+        <button v-on:click='handle'>切换</button>
+    </div>
+
+</div>
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            isActive: true,
+            testClass: 'test',
+            arrClasses: ['active', 'test'],
+            objClasses: {
+                active: true,
+                test: true
+            }
+        },
+        methods: {
+            handle: function () {
+                // this.isActive = false;
+                // this.objClasses.test = false;
+            }
+        }
+    })
+</script>
+</body>
+</html>
