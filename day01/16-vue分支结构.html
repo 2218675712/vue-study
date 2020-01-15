@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-3.4.1.js"></script>
+    <script src="../js/vue.js"></script>
+    <script>
+        /*
+        * 时间:      2020年1月15日13:05:01
+        *
+        * 目的:       vue分支结构
+        *
+        * 结果
+        *       -----------------------------
+        *
+        *       v-if控制元素是否渲染到页面
+        *       v-show控制元素是否显示(已经渲染到页面)
+        *
+        *       -----------------------------
+        * */
+    </script>
+</head>
+<body>
+<div id="app">
+    <div v-if='score>=90'>优秀</div>
+    <div v-else-if='score>=80&&score<90'>良好</div>
+    <div v-else-if='score>=60&&score<80'>一般</div>
+    <div v-else>差</div>
+    <div v-show='flag'>我是v-show</div>
+    <button @:click='handle'>切换</button>
+</div>
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            score: '99',
+            flag: 'false'
+        },
+        methods: {
+            handle: function () {
+                this.flag = !this.flag;
+            }
+        }
+    })
+</script>
+</body>
+</html>

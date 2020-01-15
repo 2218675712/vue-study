@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-3.4.1.js"></script>
+    <script src="../js/vue.js"></script>
+    <script>
+        /*
+        * 时间:      2020年1月15日14:22:59
+        *
+        * 目的:       vue循环结构遍历对象
+        *
+        * 结果
+        *       -----------------------------
+        *
+        *
+        *       -----------------------------
+        * */
+    </script>
+</head>
+<body>
+<div id="app">
+    <!--
+    value   ----值
+    key     ----属性
+    index   ----下标
+    v-if和v-for结合使用
+    -->
+    <div v-if="value==16" v-for="(value,key,index) in obj">{{value+' ----- '+key+'----'+index}}
+    </div>
+</div>
+<script>
+    let obj = {
+        name: '小明',
+        age: '18',
+        gander: 'male'
+    };
+    //原生js遍历
+    for (let x in obj) {
+        console.log(x + '----' + obj[x]);
+    }
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            obj: {
+                name: '小红',
+                age: 16,
+                gander: 'female'
+            }
+        },
+        methods: {}
+    });
+</script>
+</body>
+</html>
