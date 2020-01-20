@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-3.4.1.js"></script>
+    <script src="../js/vue.js"></script>
+    <script>
+        /*
+         * 时间:      2020年1月20日18:21:00
+         *
+         * 目的:      带参数的自定义指令
+         *
+         * 结果
+         *       -----------------------------
+         *
+         *
+         *       -----------------------------
+         * */
+    </script>
+</head>
+<body>
+<div id="app">
+    <input type="text" v-color="msg">
+</div>
+<script>
+    Vue.directive('color', {
+        //bind执行一次
+        // binding一个对象  value指令的绑定值
+        bind: function (el, binding) {
+            el.style.backgroundColor = binding.value.color;
+        }
+    });
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            msg: {
+                color: 'blue'
+            }
+        },
+        methods: {
+            handle: function () {
+
+            }
+        }
+    })
+</script>
+</body>
+</html>
