@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-3.4.1.js"></script>
+    <script src="../js/vue.js"></script>
+    <script>
+        /*
+         * 时间:      2020年1月22日15:08:13
+         *
+         * 目的:      计算属性
+         *
+         * 结果
+         *       -----------------------------
+         *
+         *      计算属性作用:方便查看,利于可读性
+         *      计算属性有缓存,只执行一次,后面直接拿值
+         *
+         *       -----------------------------
+         * */
+    </script>
+</head>
+<body>
+<div id="app">
+    <div>{{msg}}</div>
+    <div>{{reverseString}}</div>
+</div>
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            msg: 'hello'
+        },
+        methods: {},
+        computed: {
+            reverseString: function () {
+                //js翻转字符串
+                return this.msg.split('').reverse().join('');
+            }
+        }
+    });
+</script>
+</body>
+</html>
