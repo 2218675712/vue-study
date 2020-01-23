@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-3.4.1.js"></script>
+    <script src="../js/vue.js"></script>
+    <script>
+        /*
+         * 时间:      2020年1月23日19:51:01
+         *
+         * 目的:      过滤器的基本用法
+         *
+         * 结果
+         *       -----------------------------
+         *
+         *       过滤器作用:格式化数据
+         *
+         *       -----------------------------
+         * */
+    </script>
+</head>
+<body>
+<div id="app">
+    <input type="text" v-model="msg">
+    <!--    插入|符号,后面写指令名-->
+    <div>{{msg | upper}}</div>
+    <div>{{msg | lower}}</div>
+    <!--    绑定到属性-->
+    <div v-bind:abc="msg| upper">测试指令</div>
+</div>
+<script>
+    // 将首字母转换为大写
+    /*
+        Vue.filter('upper', function (val) {
+            return val.charAt(0).toUpperCase() + val.slice(1);
+        });
+        */
+    // 将首字母转换为小写
+    Vue.filter('lower', function (val) {
+        return val.charAt(0).toLowerCase() + val.slice(1);
+    });
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            msg: 'hello'
+        },
+        methods: {},
+        filters: {
+            upper: function (val) {
+                return val.charAt(0).toUpperCase() + val.slice(1);
+            }
+        }
+    })
+</script>
+</body>
+</html>
