@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-3.4.1.js"></script>
+    <script src="../js/vue.js"></script>
+    <script>
+        /*
+         * 时间:      2020年2月8日16:52:30
+         *
+         * 目的:
+         *
+         * 结果
+         *       -----------------------------
+         *
+         *
+         *       -----------------------------
+         * */
+    </script>
+</head>
+<body>
+<div id="app">
+    <!--    定义一个名为 button-counter 的新组件-->
+    <button-counter></button-counter>
+    <button-codunter></button-codunter>
+    <button-codunter></button-codunter>
+    <!--    会报错-->
+    <!--    <HelloWorld></HelloWorld>-->
+</div>
+<script>
+    // 驼峰命名法可以在组件内调用,不可以在标签直接调用
+    Vue.component('HelloWorld', {
+        data: function () {
+            return {
+                msg: 'hello world'
+            }
+        },
+        template: '<div>{{msg}}</div>'
+    });
+
+    //使用es6的模板字符串,提高可读性
+    // Vue组件
+    Vue.component('button-counter', {
+        // data 必须是一个函数
+        data: function () {
+            // 通过这种方式创建一个实例
+            return {
+                count: 0
+            }
+        },
+        // 不能写同级元素(两个及两个以上)
+        template: `
+        <div>
+            <button @click="count++">点击了{{count}}次</button>
+            <button>测试123</button>
+            <HelloWorld></HelloWorld>
+        </div>
+        `
+    });
+
+    var vm = new Vue({
+        el: '#app',
+        data: {}
+    })
+</script>
+</body>
+</html>

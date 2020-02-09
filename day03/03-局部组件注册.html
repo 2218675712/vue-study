@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-3.4.1.js"></script>
+    <script src="../js/vue.js"></script>
+    <script>
+        /*
+         * 时间:      2020年2月9日21:04:13
+         *
+         * 目的:
+         *
+         * 结果
+         *       -----------------------------
+         *
+         *
+         *       -----------------------------
+         * */
+    </script>
+</head>
+<body>
+<div id="app">
+    <hello-world></hello-world>
+    <hello-tom></hello-tom>
+    <hello-bob></hello-bob>
+</div>
+<script>
+    var HelloWorld = {
+        data: function () {
+            return {
+                msg: 'hello world'
+            }
+        },
+        template: '<div>{{msg}}</div>'
+        // 这样会报错
+        // template: '<div><hello-bob></hello-bob></div>'
+    };
+    var HelloTom = {
+        data: function () {
+            return {
+                msg: 'hello Tom'
+            }
+        },
+        template: '<div>{{msg}}</div>'
+    };
+    var HelloBob = {
+        data: function () {
+            return {
+                msg: 'hello Bob'
+            }
+        },
+        template: '<div>{{msg}}</div>'
+    };
+    //使用es6的模板字符串,提高可读性
+    // Vue组件
+    var vm = new Vue({
+        el: '#app',
+        data: {},
+        // 局部组件
+        // 局部组件只能在注册他的父组件使用
+        components: {
+            'hello-world': HelloWorld,
+            'hello-tom': HelloTom,
+            'hello-bob': HelloBob
+        }
+
+    })
+</script>
+</body>
+</html>
