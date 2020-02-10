@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-3.4.1.js"></script>
+    <script src="../js/vue.js"></script>
+    <script>
+        /*
+         * 时间:      2020年2月10日19:24:45
+         *
+         * 目的:
+         *
+         * 结果
+         *       -----------------------------
+         *
+         *
+         *       -----------------------------
+         * */
+    </script>
+</head>
+<body>
+<div id="app">
+    <div>{{pmsg}}</div>
+    <!--    tittle通过属性绑定,:content通过vue动态绑定属性-->
+    <menu-item tittle="我是标题" :content="ptittle"></menu-item>
+</div>
+<script>
+    Vue.component('menu-item', {
+        props: ['tittle', 'content'],
+        data: function () {
+            return {
+                msg: '子组件中的数据'
+            }
+        },
+        template: '<div>{{msg+"---"+tittle+"---"+content}}</div>'
+    });
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            pmsg: '父组件中的内容',
+            ptittle: '动态绑定属性'
+        },
+
+    })
+</script>
+</body>
+</html>
