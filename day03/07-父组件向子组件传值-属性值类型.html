@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-3.4.1.js"></script>
+    <script src="../js/vue.js"></script>
+    <script>
+        /*
+         * 时间:      2020年2月10日20:15:54
+         *
+         * 目的:
+         *
+         * 结果
+         *       -----------------------------
+         *
+         *
+         *       -----------------------------
+         * */
+    </script>
+</head>
+<body>
+<div id="app">
+    <!--    string,number,boolean属性绑定的是字符串,动态绑定的是原类型-->
+    <menu-item :pstr="pstr" :pnum="pnum" :pboo="pboo" :parr="parr" :pobj="pobj"></menu-item>
+</div>
+<script>
+    Vue.component('menu-item', {
+        props: ['pstr', 'pnum', 'pboo', 'parr', 'pobj'],
+        template: `<div>
+                        <div>{{typeof pstr}}</div>
+                        <div>{{typeof pnum}}</div>
+                        <div>{{typeof pstr}}</div>
+                        <ul>
+                            <li :key="index" v-for="(item,index) in parr">{{item}}</li>
+                        </ul>
+                        <ul>
+                            <li>{{pobj.name}}</li>
+                            <li>{{pobj.age}}</li>
+                        </ul>
+                    </div>`
+    });
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            pstr: 'string',
+            pnum: 12,
+            pboo: true,
+            parr: ['apple', 'banana', 'orange'],
+            pobj: {
+                name: '小明',
+                age: 18
+            }
+        },
+
+    })
+</script>
+</body>
+</html>

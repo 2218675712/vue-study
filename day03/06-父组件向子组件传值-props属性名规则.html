@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-3.4.1.js"></script>
+    <script src="../js/vue.js"></script>
+    <script>
+        /*
+         * 时间:      2020年2月10日19:57:08
+         *
+         * 目的:
+         *
+         * 结果
+         *       -----------------------------
+         *
+         *
+         *       -----------------------------
+         * */
+    </script>
+</head>
+<body>
+<div id="app">
+    <!--    需要使用短横线格式-->
+    <menu-item :menu-title="ptittle"></menu-item>
+</div>
+<script>
+    /*
+    * 在props中使用驼峰形式,模板中需要使用短横线格式
+    * 字符串形式的模板没有这个限制
+    * */
+    Vue.component('menu-item', {
+        props: ['menuTitle'],
+        //字符串形式的模板没有这个限制
+        //这里可以用
+        template: '<div>{{menuTitle}}</div>'
+    });
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            ptittle: '动态绑定属性'
+        }
+
+    })
+</script>
+</body>
+</html>
