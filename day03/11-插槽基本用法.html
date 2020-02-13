@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Title</title>
+		<script src="../js/jquery-3.4.1.js"></script>
+		<script src="../js/vue.js"></script>
+		<script>
+			/*
+			 * 时间:      2020年2月13日19:15:34
+			 *
+			 * 目的:      组件插槽
+			 *
+			 * 结果
+			 *       -----------------------------
+			 *          父传子传递模板内容
+			 *
+			 *       -----------------------------
+			 * */
+		</script>
+	</head>
+	<body>
+		<div id="app">
+			<alert-box>代码报错了</alert-box>
+			<alert-box>代码出现了警告</alert-box>
+		</div>
+		<script>
+			Vue.component('alert-box', {
+				template: `
+                <div>
+                    <strong>ERROR:</strong>
+                    <!--slot标签代表组件插槽-->
+        <slot></slot>
+        </div>
+        `
+			});
+			var vm = new Vue({
+				el: '#app',
+				data: {
+
+				}
+			})
+		</script>
+	</body>
+</html>

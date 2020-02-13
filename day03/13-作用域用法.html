@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .current {
+            color: #FFC93A;
+        }
+    </style>
+    <script src="../js/jquery-3.4.1.js"></script>
+    <script src="../js/vue.js"></script>
+    <script>
+        /*
+         * 时间:      2020年2月13日19:15:34
+         *
+         * 目的:      作用域插槽
+         *
+         * 结果
+         *       -----------------------------
+         *
+         *       -----------------------------
+         * */
+    </script>
+</head>
+<body>
+<div id="app">
+    <fruit-list :list="list">
+        <!--            作用域组件插槽-->
+        <template slot-scope="slotProps">
+            <!--            填写数据内容-->
+            <strong v-if="slotProps.item.id==2" class="current">{{slotProps.item.name}}</strong>
+            <span v-else>{{slotProps.item.name}}</span>
+        </template>
+    </fruit-list>
+</div>
+<script>
+    Vue.component('fruit-list', {
+        props: ['list'],
+        //具名插槽定义
+        template: `
+        <div>
+            <li :key="item.id" v-for="(item,index) in list">
+                <!--            作用域组件插槽-->
+        <slot :item="item">{{item.name}}</slot>
+        </li>
+        </div>
+        `
+
+
+            });
+            var vm = new Vue({
+                el: '#app',
+                data: {
+                    // 定义数组对象
+                    list: [{
+                        id: 1,
+                        name: 'apple',
+                    }, {
+                        id: 2,
+                        name: 'orange',
+                    }, {
+                        id: 3,
+                        name: 'banana',
+                    }]
+                }
+            })
+</script>
+</body>
+</html>

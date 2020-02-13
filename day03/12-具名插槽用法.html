@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-3.4.1.js"></script>
+    <script src="../js/vue.js"></script>
+    <script>
+        /*
+         * 时间:      2020年2月13日19:15:34
+         *
+         * 目的:      具名插槽
+         *
+         * 结果
+         *       -----------------------------
+         *
+         *       -----------------------------
+         * */
+    </script>
+</head>
+<body>
+<div id="app">
+    <!--    第一种方式-->
+    <base-layout>
+        <p slot="header">我是标题内容</p>
+        <p>我是主体内容</p>
+        <p slot="footer">我是底部内容</p>
+    </base-layout>
+    <!--    第二种方式-->
+    <base-layout>
+        <template slot="header">
+            <p>我是标题内容</p>
+        </template>
+        <template>
+            <p>我是主体内容</p>
+        </template>
+        <template slot="footer">
+            <p>我是底部内容</p>
+        </template>
+    </base-layout>
+</div>
+<script>
+    Vue.component('base-layout', {
+        //具名插槽定义
+        template: `
+		<div>
+		<header>
+		    <slot name="header"></slot>
+        </header>
+        <main>
+		    <slot></slot>
+        </main>
+        <footer>
+            <slot name='footer'></slot>
+        </footer>
+		</div>
+        `
+    });
+    var vm = new Vue({
+        el: '#app',
+        data: {}
+    })
+</script>
+</body>
+</html>
