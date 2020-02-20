@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-3.4.1.js"></script>
+    <script src="../js/vue.js"></script>
+    <script>
+        /*
+         * 时间:      2020年2月20日16:07:04
+         *
+         * 目的:      jQuery ajax学习 异步了解
+         *
+         * 结果
+         *       -----------------------------
+         *
+         *
+         *       -----------------------------
+         * */
+    </script>
+</head>
+<body>
+<script>
+    /*
+      前后端交互-异步编程与Promise概述
+    */
+    var ret = '---';
+    $.ajax({
+        url: 'http://localhost:3000/data',
+        success: function (data) {
+            ret = data;
+            console.log(ret);
+        }
+    });
+    console.log(ret);
+    /*
+    * 先输出---
+    * 在输出hello world,这就是异步
+    *
+    * */
+
+
+//    解决异步
+//    回调地狱
+    $.ajax({
+        url: 'http://localhost:3000/data',
+        success: function(data) {
+            console.log(data);
+            $.ajax({
+                url: 'http://localhost:3000/data1',
+                success: function(data) {
+                    console.log(data);
+                    $.ajax({
+                        url: 'http://localhost:3000/data2',
+                        success: function(data) {
+                            console.log(data);
+                        }
+                    });
+                }
+            });
+        }
+    });
+</script>
+</body>
+</html>
