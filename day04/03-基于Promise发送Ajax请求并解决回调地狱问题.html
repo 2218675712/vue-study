@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-3.4.1.js"></script>
+    <script src="../js/vue.js"></script>
+    <script>
+        /*
+         * 时间:      2020年2月21日20:43:31
+         *
+         * 目的:      Promise发送Ajax请求
+         *
+         * 结果
+         *       -----------------------------
+         *
+         *
+         *       -----------------------------
+         * */
+    </script>
+</head>
+<body>
+<script>
+    /**
+     * 利用promise发送Ajax请求
+     */
+    function queryData(url) {
+        var p = new Promise(function (resolve, reject) {
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState != 4) return;
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    // 处理正常情况
+                    resolve(xhr.responseText);
+                } else {
+                    // 处理异常情况
+                    reject("服务器错误");
+                }
+            };
+            xhr.open('get', url);
+            xhr.send(null);
+        });
+        return p;
+    }
+
+    /*    queryData('http://localhost:3000/data').then(function (data) {
+            console.log(data);
+        }, function (info) {
+            console.log(info);
+        })*/
+    // 发送多个Ajax请求,并且保证顺序
+    queryData('http://localhost:3000/data')
+        .then(function (data) {
+            console.log(data);
+            return queryData('http://localhost:3000/data1');
+        })
+        .then(function (data) {
+            console.log(data);
+            return queryData('http://localhost:3000/data2')
+        })
+        .then(function (data) {
+            console.log(data);
+        })
+</script>
+</body>
+</html>
