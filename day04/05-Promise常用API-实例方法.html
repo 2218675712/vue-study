@@ -7,9 +7,9 @@
     <script src="../js/vue.js"></script>
     <script>
         /*
-         * 时间:      2020年2月21日20:43:31
+         * 时间:      2020年2月22日14:30:05
          *
-         * 目的:      Promise发送Ajax请求
+         * 目的:      Promise常用api的实例方法
          *
          * 结果
          *       -----------------------------
@@ -20,6 +20,46 @@
     </script>
 </head>
 <body>
+<script>
+    function foo() {
+        return new Promise(function (resolve, reject) {
+            setTimeout(function () {
+                // 正常数据
+                resolve(123)
+                // 错误数据
+                // reject('error')
+            }, 100)
+        });
+    }
 
+    // 第一种形式
+    /*    foo()
+            //    正常数据
+            .then(function (data) {
+                console.log(data);
+            })
+            // 异常数据
+            .catch(function (data) {
+                console.log(data);
+            })
+            //强制执行
+            .finally(function (data) {
+                console.log("finished");
+            })*/
+
+    // 第二种形式
+    foo()
+        .then(function (data) {
+            // 正常数据
+            console.log(data);
+        }, function (data) {
+            // 异常数据
+            console.log(data)
+        })
+        // 强制执行
+        .finally(function (data) {
+            console.log("finished");
+        })
+</script>
 </body>
 </html>

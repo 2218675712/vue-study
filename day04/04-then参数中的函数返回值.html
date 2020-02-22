@@ -7,9 +7,9 @@
     <script src="../js/vue.js"></script>
     <script>
         /*
-         * 时间:      2020年2月21日20:43:31
+         * 时间:      2020年2月22日13:58:40
          *
-         * 目的:      Promise发送Ajax请求
+         * 目的:      then参数返回值
          *
          * 结果
          *       -----------------------------
@@ -20,6 +20,49 @@
     </script>
 </head>
 <body>
+<script type="text/javascript">
+    /**
+     * 利用promise发送Ajax请求
+     */
+    function queryData(url) {
+        return new Promise(function (resolve, reject) {
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState != 4) return;
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    // 处理正常情况
+                    resolve(xhr.responseText);
+                } else {
+                    // 处理异常情况
+                    reject("服务器错误");
+                }
+            };
+            xhr.open('get', url);
+            xhr.send(null);
+        });
+    }
 
+    queryData('http://localhost:3000/data')
+        .then(function (data) {
+            return queryData('http://localhost:3000/data1');
+        })
+        // 返回实例对象
+        // 返回的实例对象会调用下一个then
+        .then(function (data) {
+            return new Promise(function (resolve, reject) {
+                setTimeout(function () {
+                    resolve(123);
+                }, 1000)
+            });
+        })
+        // 返回普通值
+        // 返回的普通值会传递给下一个then,通过then参数的函数接受该值
+        .then(function (data) {
+            return 'hello';
+        })
+        .then(function (data) {
+            console.log(data)
+        })
+</script>
 </body>
 </html>
