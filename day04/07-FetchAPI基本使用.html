@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-3.4.1.js"></script>
+    <script src="../js/vue.js"></script>
+    <script>
+        /*
+         * 时间:      2020年2月22日20:29:02
+         *
+         * 目的:      Fetch使用
+         *
+         * 结果
+         *       -----------------------------
+         *
+         *
+         *       -----------------------------
+         * */
+    </script>
+</head>
+<body>
+<script>
+    fetch('http://localhost:3000/fdata')
+        .then(data => {
+            // text()方法属于fetchAPI的一部分,他返回一个promise实例对象,用于获取后台返回的数据
+            return data.text();
+        })
+        .then(data => {
+            console.log(data)
+        })
+</script>
+</body>
+</html>

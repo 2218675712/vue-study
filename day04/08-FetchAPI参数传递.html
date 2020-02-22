@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-3.4.1.js"></script>
+    <script src="../js/vue.js"></script>
+    <script>
+        /*
+         * 时间:      2020年2月22日20:46:56
+         *
+         * 目的:      fetch
+         *
+         * 结果
+         *       -----------------------------
+         *
+         *
+         *       -----------------------------
+         * */
+    </script>
+</head>
+<body>
+<script>
+    //第一种请求方式
+    /*    fetch('http://localhost:3000/books?id=123', {
+            method: 'get'
+        })
+            .then(data => data.text())
+            .then(data => {
+                console.log(data);
+            })*/
+    //第二种请求方式
+    /*    fetch('http://localhost:3000/books/456', {
+            method: 'get'
+        })
+            .then(data => data.text())
+            .then(data => {
+                console.log(data);
+            })*/
+    //第三种请求方式
+    fetch('http://localhost:3000/books/789', {
+        method: 'delete'
+    })
+        .then(data => data.text())
+        .then(data => {
+            console.log(data);
+        })
+</script>
+</body>
+</html>
