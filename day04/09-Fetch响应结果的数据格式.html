@@ -7,19 +7,37 @@
     <script src="../js/vue.js"></script>
     <script>
         /*
-         * 时间:      2020年2月22日20:07:18
+         * 时间:      2020年2月23日20:37:52
          *
-         * 目的:      Promise发送Ajax请求
+         * 目的:      返回json数据处理
          *
          * 结果
          *       -----------------------------
-         *      实例方法必须实例出来才能调用,而对象方法可以直接对象.调用
          *
          *       -----------------------------
          * */
     </script>
 </head>
 <body>
-
+<script>
+    // 第一种情况
+    /*    fetch('http://localhost:3000/json').then(function (data) {
+            return data.json();
+        }).then(function (data) {
+            // 是个json,里面数据可以点出来
+            console.log(data);
+            console.log(data.uname);
+        })*/
+    // 第二种情况
+    fetch('http://localhost:3000/json').then(function (data) {
+        return data.text();
+    }).then(function (data) {
+        // 也是json不过是字符串
+        console.log(data);
+        // 如果需要点出来,则需要转换为json
+        const obj = JSON.parse(data);
+        console.log(obj.uname);
+    })
+</script>
 </body>
 </html>
