@@ -9,7 +9,7 @@
         /*
          * 时间:      2020年2月22日20:46:56
          *
-         * 目的:      fetch
+         * 目的:      fetch请求方式
          *
          * 结果
          *       -----------------------------
@@ -38,8 +38,50 @@
                 console.log(data);
             })*/
     //第三种请求方式
-    fetch('http://localhost:3000/books/789', {
-        method: 'delete'
+    /*    fetch('http://localhost:3000/books/789', {
+            method: 'delete'
+        })
+            .then(data => data.text())
+            .then(data => {
+                console.log(data);
+            })*/
+    // 第四种请求方式
+    /*    fetch('http://localhost:3000/books', {
+            method: 'post',
+            body: 'uname=lisi&pwd=123',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            }
+        })
+            .then(data => data.text())
+            .then(data => {
+                console.log(data);
+            })*/
+    // 第五种请求方式
+/*    fetch('http://localhost:3000/books', {
+        method: 'post',
+        body: JSON.stringify({
+            uname: '张三',
+            pwd: '456'
+        }),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+        .then(data => data.text())
+        .then(data => {
+            console.log(data);
+        })*/
+    // 第六种请求方式
+    fetch('http://localhost:3000/books/123', {
+        method: 'put',
+        body: JSON.stringify({
+            uname: '张三',
+            pwd: '456'
+        }),
+        headers: {
+            'Content-Type': 'application/json'
+        }
     })
         .then(data => data.text())
         .then(data => {
