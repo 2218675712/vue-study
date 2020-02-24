@@ -42,7 +42,31 @@
         })*/
 
     // delete方式同上
-        axios.delete('http://localhost:3000/axios?id=123')
+    /*axios.delete('http://localhost:3000/axios?id=123')
+    .then(function (ret) {
+        console.log(ret.data);
+    })*/
+    // 第四种方式
+    /*axios.post('http://localhost:3000/axios', {
+        uname: 'lisi',
+        pwd: 123
+    })
+        .then(function (ret) {
+            console.log(ret.data);
+        })*/
+    // 第五种方式        通过urlSearchParams传递参数
+    /*    const params = new URLSearchParams();
+        params.append('uname', '张三');
+        params.append('pwd', '456');
+        axios.post('http://localhost:3000/axios', params)
+            .then(ret => {
+                console.log(ret.data);
+            })*/
+    // 第六种方式
+    axios.put('http://localhost:3000/axios/123', {
+        uname: 'lisi',
+        pwd: 123
+    })
         .then(function (ret) {
             console.log(ret.data);
         })
