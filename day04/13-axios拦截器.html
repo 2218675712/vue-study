@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-3.4.1.js"></script>
+    <script src="../js/vue.js"></script>
+    <script src="../js/axios.js"></script>
+    <script>
+        /*
+        * 时间:      2020年2月24日20:52:24
+        *
+        * 目的:      axios拦截器
+        *
+        * 结果
+        *       -----------------------------
+        *
+        *       -----------------------------
+        * */
+    </script>
+</head>
+<body>
+<script>
+    // 请求拦截器
+    /*    axios.interceptors.request.use(function (config) {
+            // 可以通过这样点出来的属性进行判断,之后做相应处理
+            console.log(config.url);
+            config.headers.mytoken = 'nihao';
+            return config;
+        }, function (err) {
+            // 处理错误信息
+            console.log(err)
+        })*/
+    // 响应拦截器
+    axios.interceptors.response.use(function (res) {
+        console.log(res);
+        var data = res.data;
+        //这样拿到的就是真实的数据
+        return data;
+    }, function (err) {
+        // 处理错误信息
+        console.log(err);
+    });
+    axios.get('http://localhost:3000/adata').then(function (data) {
+        console.log(data);
+    })
+</script>
+</body>
+</html>
