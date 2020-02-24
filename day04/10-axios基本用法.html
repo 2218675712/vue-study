@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-3.4.1.js"></script>
+    <script src="../js/vue.js"></script>
+    <script src="../js/axios.js"></script>
+    <script>
+        /*
+        * 时间:      2020年2月24日08:38:33
+        *
+        * 目的:      axios学习
+        *
+        * 结果
+        *       -----------------------------
+        *
+        *       -----------------------------
+        * */
+    </script>
+</head>
+<body>
+<script>
+    axios.get('http://localhost:3000/adata')
+    .then(function (ret) {
+        // data属性是固定的,用于获取后台的实际数据
+        console.log(ret.data)
+    })
+</script>
+</body>
+</html>

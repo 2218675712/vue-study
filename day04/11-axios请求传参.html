@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-3.4.1.js"></script>
+    <script src="../js/vue.js"></script>
+    <script src="../js/axios.js"></script>
+    <script>
+        /*
+        * 时间:      2020年2月24日08:59:36
+        *
+        * 目的:      axios请求
+        *
+        * 结果
+        *       -----------------------------
+        *
+        *       -----------------------------
+        * */
+    </script>
+</head>
+<body>
+<script>
+    // 第一种方式
+    /*    axios.get('http://localhost:3000/axios?id=123')
+            .then(function (ret) {
+                console.log(ret.data);
+            })*/
+    // 第二种方式
+    /*    axios.get('http://localhost:3000/axios/123')
+            .then(function (ret) {
+                console.log(ret.data);
+            })*/
+    // 第三种方式        这种最方便
+    /*axios.get('http://localhost:3000/axios', {
+        params: {
+            id: 789
+        }
+    })
+        .then(function (ret) {
+            console.log(ret.data);
+        })*/
+
+    // delete方式同上
+        axios.delete('http://localhost:3000/axios?id=123')
+        .then(function (ret) {
+            console.log(ret.data);
+        })
+</script>
+</body>
+</html>
