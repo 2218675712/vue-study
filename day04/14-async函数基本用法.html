@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-3.4.1.js"></script>
+    <script src="../js/vue.js"></script>
+    <script src="../js/axios.js"></script>
+    <script>
+        /*
+        * 时间:      2020年2月25日09:05:45
+        *
+        * 目的:      async
+        *
+        * 结果
+        *       -----------------------------
+        *
+        *       -----------------------------
+        * */
+    </script>
+</head>
+<body>
+<script>
+    /*
+    * async/await处理异步操作
+    **/
+    axios.defaults.baseURL = 'http://localhost:3000';
+
+    /*    async function queryData() {
+            var ret = await axios.get('adata');
+            return ret.data;
+        }*/
+    async function queryData() {
+        //模拟异步
+        var ret = await new Promise(function (resolve, reject) {
+            setTimeout(function () {
+                resolve('hello');
+            }, 1000);
+        });
+        return ret;
+    }
+
+    queryData().then(function (data) {
+        console.log(data);
+    })
+</script>
+</body>
+</html>
